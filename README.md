@@ -1,3 +1,22 @@
+**PROJECT OVERVIEW**
+
+Note: This below project is already implemented with below software/hardware requirements.
+Previous application is running and everything is fine but its structure is not clear.
+So, I'm developing application with different softwares, if you are interested in developing this application or share an idea. 
+Please feel free to drop a mail at ravindranadh.inavolu@gmail.com
+
+Trying with : 
+Backend: Spring boot,
+Frontend: Angular,
+Hardware: might remain same if required we can change acc.
+
+Added functionality: 
++Email services
++User Authorization
++Prediction functionality
++Proper UI
++many more services
+
 **IOT AGRICULTURAL FIELD MONITORING SYSTEM**
 
 **IOT and Agriculture:-**
