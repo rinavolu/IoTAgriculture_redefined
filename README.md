@@ -1,22 +1,3 @@
-**PROJECT OVERVIEW**
-
-Note: This below project is already implemented with below software/hardware requirements.
-Previous application is running and everything is fine but its structure is not clear.
-So, I'm developing application with different softwares, if you are interested in developing this application or share an idea. 
-Please feel free to drop a mail at ravindranadh.inavolu@gmail.com
-
-Trying with : 
-Backend: Spring boot,
-Frontend: Angular,
-Hardware: might remain same if required we can change acc.
-
-Added functionality: 
-+Email services
-+User Authorization
-+Prediction functionality
-+Proper UI
-+many more services
-
 **IOT AGRICULTURAL FIELD MONITORING SYSTEM**
 
 **IOT and Agriculture:-**
@@ -27,12 +8,28 @@ among farmers about IOT results in implementation as well as more productivity .
 we can see some change in the farming sector scales in INDIA as it is the biggest sector and
 backward sector with less deployment of technology .
 
+**Circuit Diagram:-**
+![alt text](Firtzing circuit/CD.jpg "Circuit Diagram")
+
+**Block Diagram:-**
+
+**Hardware:-**
+
+![alt text](Block Diagram/photo1.jpg "Hardware block diagram")
+
+**Database [backend]:-**
+![alt text](Block Diagram/image.png "Database block diagram")
+
+**Data Flow**
+
+![alt text](Block Diagram/photo_2020-11-26_21-19-17.jpg "Data flow block diagram")
+
+**Graphical view**
+![alt text](Block Diagram/photo_2020-11-26_21-16-34.jpg "Graphical view")
+
+
 **Working:-**
-For each node there will be a NODE MCU linked . so that, for a particular area of field the data gets transferred to database. 
-We can keep N number of nodes based on the farm area . Here in this project we took default 4 nodes for a user who registered
-(But by default all the nodes database will be disabled).When he/she registers the device then we will give the access to database to store values. 
-Till now we seen how to transfer data to database. Then the next step is to display the  data values in the web page for remote access of data.
-In this scenario the data of sensors is private means it cannot be accessed by any others who registered. Only the owner can authenticate the data securely.
+For each node there will be a NODE MCU linked . so that, for a particular area of field the data gets transferred to database. We can keep N number of nodes based on the farm area . Here in this project we took default 4 nodes for a user who registered (But by default all the nodes database will be disabled).When he/she registers the device then we will give the access to database to store values. Till now we seen how to transfer data to database. Then the next step is to display the  data values in the web page for remote access of data. In this scenario the data of sensors is private means it cannot be accessed by any others who registered. Only the owner can authenticate the data securely.
 
 **Requirements:-**
 **Hardware:-**
