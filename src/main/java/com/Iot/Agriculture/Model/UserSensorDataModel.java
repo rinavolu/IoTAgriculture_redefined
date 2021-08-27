@@ -16,13 +16,22 @@ public class UserSensorDataModel {
     private int EntryNo;
     private int userId;
     private int deviceId;
-    private int temperature;
+    private int env_temperature;
+    private int area_temperature;
     private int humidity;
     private double dustDensity;
     private double moisturePercentage;
     private int uvLevel;
     private double uvIntensity;
     private Timestamp createdAt=Timestamp.valueOf(LocalDateTime.now());
+
+    public int getEntryNo() {
+        return EntryNo;
+    }
+
+    public void setEntryNo(int entryNo) {
+        EntryNo = entryNo;
+    }
 
     public int getUserId() {
         return userId;
@@ -40,12 +49,20 @@ public class UserSensorDataModel {
         this.deviceId = deviceId;
     }
 
-    public int getTemperature() {
-        return temperature;
+    public int getEnv_temperature() {
+        return env_temperature;
     }
 
-    public void setTemperature(int temperature) {
-        this.temperature = temperature;
+    public void setEnv_temperature(int env_temperature) {
+        this.env_temperature = env_temperature;
+    }
+
+    public int getArea_temperature() {
+        return area_temperature;
+    }
+
+    public void setArea_temperature(int area_temperature) {
+        this.area_temperature = area_temperature;
     }
 
     public int getHumidity() {
@@ -84,7 +101,7 @@ public class UserSensorDataModel {
         return uvIntensity;
     }
 
-    public void setUvIntensity(int uvIntensity) {
+    public void setUvIntensity(double uvIntensity) {
         this.uvIntensity = uvIntensity;
     }
 

@@ -16,8 +16,10 @@ public class ResponseBuilderImpl implements ResponseBuilder{
     public List<UserSensorDataDTO> buildUserSensorData(List<UserSensorDataModel> userSensorDataModelList) {
         List<UserSensorDataDTO> userSensorDataResponse=new ArrayList<>();
         for(UserSensorDataModel data: userSensorDataModelList){
-        SensorDTO sensorDTO=new SensorDTO(data.getDeviceId(),data.getTemperature(), data.getHumidity(),
-                data.getDustDensity(),data.getMoisturePercentage(),data.getUvLevel(),data.getUvIntensity(),data.getCreatedAt());
+        SensorDTO sensorDTO=new SensorDTO(data.getDeviceId(),
+                data.getEnv_temperature(), data.getEnv_temperature(), data.getHumidity(),
+                data.getDustDensity(),data.getMoisturePercentage(),data.getUvLevel(),
+                data.getUvIntensity(),data.getCreatedAt());
         UserSensorDataDTO userDTO=new UserSensorDataDTO(data.getUserId(),sensorDTO,data.getCreatedAt());
         userSensorDataResponse.add(userDTO);
         }
