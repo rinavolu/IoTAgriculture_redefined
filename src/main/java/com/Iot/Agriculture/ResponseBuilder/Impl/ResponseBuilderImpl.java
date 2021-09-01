@@ -36,7 +36,8 @@ public class ResponseBuilderImpl implements ResponseBuilder {
     public UserRegistrationMainDTO buildRegisteredUserResponse(UserRegistrationDataModel registeredDetails, UserPermissionDataModel userPermissions) {
         UserPermissionDTO permissionResponse=new UserPermissionDTO(
                 userPermissions.getDeviceId(),
-                userPermissions.isDeviceActive());
+                userPermissions.isDeviceActive(),
+                userPermissions.isAbleToSaveData());
         UserRegistrationMainDTO responseDTO=new UserRegistrationMainDTO(
                 registeredDetails.getUserId(),
                 registeredDetails.getFirstName(),
@@ -63,5 +64,13 @@ public class ResponseBuilderImpl implements ResponseBuilder {
                 registeredDetails.getCreatedAt()
         );
         return userDetails;
+    }
+
+    @Override
+    public UserPermissionDTO buildUserPermissionDetails(UserPermissionDataModel userPermissionModel) {
+        return new UserPermissionDTO(
+                userPermissionModel.getDeviceId(),
+                userPermissionModel.isDeviceActive(),
+                userPermissionModel.isAbleToSaveData());
     }
 }

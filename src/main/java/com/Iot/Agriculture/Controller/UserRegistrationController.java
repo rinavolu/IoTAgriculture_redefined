@@ -2,6 +2,8 @@ package com.Iot.Agriculture.Controller;
 
 import com.Iot.Agriculture.DTO.UserRegistrationMainDTO;
 import com.Iot.Agriculture.DTO.UserDetailsDTO;
+import com.Iot.Agriculture.Handlers.Exception.InValidVerificationIdException;
+import com.Iot.Agriculture.Handlers.Exception.UserNotAuthenticatedException;
 import com.Iot.Agriculture.Model.UserRegistrationDataModel;
 import com.Iot.Agriculture.Repository.UserRegistrationDataRepository;
 import com.Iot.Agriculture.ResponseBuilder.ResponseBuilder;
@@ -33,11 +35,14 @@ public class UserRegistrationController {
     @GetMapping("/validateuser/{userId}/{verificationId}")
     public UserDetailsDTO authenticateUser(@PathVariable("userId") int userId, @PathVariable("verificationId") String verificationId){
         if(userDataService.isUserAuthenticated(userId)){
-            //error handle
-        }else{
+            //user already authenticated
+            //use validation expired..
+            throw new UserNotAuthenticatedException();
+        }
+        else{
             UserRegistrationDataModel userDetails=userDataService.getUserDetails(userId);
             if(!(userDetails.getValidationId().equals(verificationId))){
-                //error handle
+                throw new InValidVerificationIdException();
             }
             else {
                 userDetails.setUserValidated(true);
@@ -45,6 +50,5 @@ public class UserRegistrationController {
             }
             return responseBuilder.buildUserDetailsOnly(userRegistration.save(userDetails));
         }
-        return null;
     }
 }
