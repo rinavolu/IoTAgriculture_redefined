@@ -43,7 +43,7 @@ public class WeatherServiceImpl implements WeatherService{
         JSONObject currentWeather=weatherData.getJSONObject("current");
         weatherDTO.setTemperature((Integer)currentWeather.get("temperature"));
         weatherDTO.setPressure((Integer) currentWeather.get("pressure"));
-        weatherDTO.setPrecip((Integer) currentWeather.get("precip"));
+        weatherDTO.setPrecip((Double) currentWeather.get("precip"));
         weatherDTO.setHumidity((Integer) currentWeather.get("humidity"));
         weatherDTO.setFeelsLike((Integer) currentWeather.get("feelslike"));
         weatherDTO.setUvIndex((Integer) currentWeather.get("uv_index"));

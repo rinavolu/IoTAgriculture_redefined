@@ -22,7 +22,7 @@ public class UserPermissionServicesImpl implements UserPermissionServices {
         List<UserPermissionDataModel> userDetails=userPermissionRepository.findAll();
         for(UserPermissionDataModel i:userDetails){
             if(i.getUserId()==userId){
-                return i.isAbleToSaveData();
+                return i.isAbleToSaveData()&&i.isDeviceActive();
             }
         }
         throw new UserNotFoundException();

@@ -1,5 +1,6 @@
 package com.Iot.Agriculture.Controller;
 
+import com.Iot.Agriculture.CommunicationServices.EmailService;
 import com.Iot.Agriculture.DTO.UserRegistrationMainDTO;
 import com.Iot.Agriculture.DTO.UserDetailsDTO;
 import com.Iot.Agriculture.Handlers.Exception.InValidVerificationIdException;
@@ -25,9 +26,13 @@ public class UserRegistrationController {
     @Autowired
     ResponseBuilder responseBuilder;
 
+    @Autowired
+    EmailService emailService;
+
     @PostMapping("/registeruser")
     public UserRegistrationMainDTO registerUser(@RequestBody UserRegistrationDataModel userData){
         UserRegistrationDataModel userRegistrationDetails=userRegistration.save(userData);
+        emailService.sendUserAuthentication(userRegistrationDetails);
         return responseBuilder.buildRegisteredUserResponse(userRegistrationDetails,
                 userDataService.saveUserPermissionDetails(userRegistrationDetails));
     }
