@@ -48,8 +48,7 @@ public class UserSensorDataController {
 
     @PostMapping("/save/sensordata")
     private UserSensorDataModel saveSensorData(@RequestBody UserSensorDataModel userSensorDataModel_object) throws JSONException {
-        if((!(userDataServices.isUserAuthenticated(userSensorDataModel_object.getUserId())))||
-                (!userPermissionService.isUserHavePrivilege(userSensorDataModel_object.getUserId())))
+        if((!(userDataServices.isUserAuthenticated(userSensorDataModel_object.getUserId()))))
         {
             //when user is not authenticated.
             throw new UserPermissionException();

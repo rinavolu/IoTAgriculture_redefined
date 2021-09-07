@@ -1,6 +1,7 @@
 package com.Iot.Agriculture.ResponseBuilder.Impl;
 
 import com.Iot.Agriculture.DTO.*;
+import com.Iot.Agriculture.Model.UserDeviceDetailsDataModel;
 import com.Iot.Agriculture.Model.UserPermissionDataModel;
 import com.Iot.Agriculture.Model.UserRegistrationDataModel;
 import com.Iot.Agriculture.Model.UserSensorDataModel;
@@ -33,11 +34,12 @@ public class ResponseBuilderImpl implements ResponseBuilder {
     }
 
     @Override
-    public UserRegistrationMainDTO buildRegisteredUserResponse(UserRegistrationDataModel registeredDetails, UserPermissionDataModel userPermissions) {
+    public UserRegistrationMainDTO buildRegisteredUserResponse(UserRegistrationDataModel registeredDetails, UserPermissionDataModel userPermissionModel) {
         UserPermissionDTO permissionResponse=new UserPermissionDTO(
-                userPermissions.getDeviceId(),
-                userPermissions.isDeviceActive(),
-                userPermissions.isAbleToSaveData());
+                userPermissionModel.getUserId(),
+                userPermissionModel.getDeviceLimit(),
+                userPermissionModel.isEligibleForDevice(),
+                userPermissionModel.getNoOfDevicesActive());
         UserRegistrationMainDTO responseDTO=new UserRegistrationMainDTO(
                 registeredDetails.getUserId(),
                 registeredDetails.getFirstName(),
@@ -69,8 +71,17 @@ public class ResponseBuilderImpl implements ResponseBuilder {
     @Override
     public UserPermissionDTO buildUserPermissionDetails(UserPermissionDataModel userPermissionModel) {
         return new UserPermissionDTO(
-                userPermissionModel.getDeviceId(),
-                userPermissionModel.isDeviceActive(),
-                userPermissionModel.isAbleToSaveData());
+                userPermissionModel.getUserId(),
+                userPermissionModel.getDeviceLimit(),
+                userPermissionModel.isEligibleForDevice(),
+                userPermissionModel.getNoOfDevicesActive());
+    }
+
+    @Override
+    public UserDeviceDetailsDTO buildUserDeviceDetails(UserDeviceDetailsDataModel userDeviceModel) {
+        return new UserDeviceDetailsDTO(userDeviceModel.getDeviceId(),
+                userDeviceModel.getUserId(),
+                userDeviceModel.getDeviceName(),
+                userDeviceModel.isDeviceActive());
     }
 }

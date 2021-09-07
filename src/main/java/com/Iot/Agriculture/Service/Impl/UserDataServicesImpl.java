@@ -1,5 +1,6 @@
 package com.Iot.Agriculture.Service.Impl;
 
+import com.Iot.Agriculture.Handlers.Exception.UserNotFoundException;
 import com.Iot.Agriculture.Model.UserPermissionDataModel;
 import com.Iot.Agriculture.Model.UserRegistrationDataModel;
 import com.Iot.Agriculture.Repository.UserPermissionDataRepository;
@@ -23,8 +24,9 @@ public class UserDataServicesImpl implements UserDataServices {
     private ResponseBuilder responseBuilder;
 
     @Override
-    public UserPermissionDataModel saveUserPermissionDetails(UserRegistrationDataModel userRegistration) {
-        UserPermissionDataModel permissionObject=new UserPermissionDataModel(userRegistration.getUserId());
+    public UserPermissionDataModel saveUserPermissions_Authenticated(UserRegistrationDataModel userRegistration) {
+        UserPermissionDataModel permissionObject=
+                new UserPermissionDataModel(userRegistration.getUserId(),true);
         return permissionRepository.save(permissionObject);
     }
 
@@ -45,7 +47,7 @@ public class UserDataServicesImpl implements UserDataServices {
                 return i;
             }
         }
-        return null;
+        throw new UserNotFoundException();
     }
 
     public UserPermissionDataModel getUserPermissionDetails(int userId){

@@ -5,7 +5,7 @@ import com.Iot.Agriculture.Model.UserRegistrationDataModel;
 
 public interface UserDataServices {
 
-    UserPermissionDataModel saveUserPermissionDetails(UserRegistrationDataModel userRegistration);
+    UserPermissionDataModel saveUserPermissions_Authenticated(UserRegistrationDataModel userRegistration);
 
     UserRegistrationDataModel getUserDetails(int userId);
 

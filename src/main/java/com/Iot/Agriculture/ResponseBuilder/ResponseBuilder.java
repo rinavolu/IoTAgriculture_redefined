@@ -1,9 +1,7 @@
 package com.Iot.Agriculture.ResponseBuilder;
 
-import com.Iot.Agriculture.DTO.UserPermissionDTO;
-import com.Iot.Agriculture.DTO.UserRegistrationMainDTO;
-import com.Iot.Agriculture.DTO.UserDetailsDTO;
-import com.Iot.Agriculture.DTO.UserSensorDataDTO;
+import com.Iot.Agriculture.DTO.*;
+import com.Iot.Agriculture.Model.UserDeviceDetailsDataModel;
 import com.Iot.Agriculture.Model.UserPermissionDataModel;
 import com.Iot.Agriculture.Model.UserRegistrationDataModel;
 import com.Iot.Agriculture.Model.UserSensorDataModel;
@@ -16,4 +14,5 @@ public interface ResponseBuilder {
     UserRegistrationMainDTO buildRegisteredUserResponse(UserRegistrationDataModel registeredDetails, UserPermissionDataModel userPermissions);
     UserDetailsDTO buildUserDetailsOnly(UserRegistrationDataModel registeredDetails);
     UserPermissionDTO buildUserPermissionDetails(UserPermissionDataModel userPermissionModel);
+    UserDeviceDetailsDTO buildUserDeviceDetails(UserDeviceDetailsDataModel userDeviceModel);
 }

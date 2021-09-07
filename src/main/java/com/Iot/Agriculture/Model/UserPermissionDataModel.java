@@ -1,6 +1,8 @@
 package com.Iot.Agriculture.Model;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="user_permissions")
@@ -10,22 +12,18 @@ public class UserPermissionDataModel {
     private int slno;
 
     private int userId;
-    private int deviceId=0;
-    private boolean isAbleToSaveData=false;
-    private boolean isDeviceActive=false;
+    private int deviceLimit=1;
+    private boolean isEligibleForDevice=false;
+    private int noOfDevicesActive=0;
+    private int noOfDevicesNotActive=0;
+    private Timestamp createdAt=Timestamp.valueOf(LocalDateTime.now());
 
     public UserPermissionDataModel() {
     }
 
-    public UserPermissionDataModel(int userId, int deviceId, boolean isAbleToSaveData, boolean isDeviceActive) {
+    public UserPermissionDataModel(int userId, boolean isEligibleForDevice) {
         this.userId = userId;
-        this.deviceId = deviceId;
-        this.isAbleToSaveData = isAbleToSaveData;
-        this.isDeviceActive = isDeviceActive;
-    }
-
-    public UserPermissionDataModel(int userId) {
-        this.userId = userId;
+        this.isEligibleForDevice = isEligibleForDevice;
     }
 
     public int getUserId() {
@@ -36,27 +34,43 @@ public class UserPermissionDataModel {
         this.userId = userId;
     }
 
-    public int getDeviceId() {
-        return deviceId;
+    public int getDeviceLimit() {
+        return deviceLimit;
     }
 
-    public void setDeviceId(int deviceId) {
-        this.deviceId = deviceId;
+    public void setDeviceLimit(int deviceLimit) {
+        this.deviceLimit = deviceLimit;
     }
 
-    public boolean isDeviceActive() {
-        return isDeviceActive;
+    public boolean isEligibleForDevice() {
+        return isEligibleForDevice;
     }
 
-    public void setDeviceActive(boolean deviceActive) {
-        isDeviceActive = deviceActive;
+    public void setEligibleForDevice(boolean eligibleForDevice) {
+        isEligibleForDevice = eligibleForDevice;
     }
 
-    public boolean isAbleToSaveData() {
-        return isAbleToSaveData;
+    public int getNoOfDevicesActive() {
+        return noOfDevicesActive;
     }
 
-    public void setAbleToSaveData(boolean ableToSaveData) {
-        isAbleToSaveData = ableToSaveData;
+    public void setNoOfDevicesActive(int noOfDevicesActive) {
+        this.noOfDevicesActive = noOfDevicesActive;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public int getNoOfDevicesNotActive() {
+        return noOfDevicesNotActive;
+    }
+
+    public void setNoOfDevicesNotActive(int noOfDevicesNotActive) {
+        this.noOfDevicesNotActive = noOfDevicesNotActive;
     }
 }
