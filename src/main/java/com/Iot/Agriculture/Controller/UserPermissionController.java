@@ -50,7 +50,7 @@ public class UserPermissionController {
         return responseBuilder.buildUserDeviceDetails(userDeviceRepository.save(deviceDetails));
         }
         else
-            return null;
+            throw new RuntimeException("False value");
     }
 
     @GetMapping("/senddeviceactivationmail/{userId}")
@@ -62,6 +62,11 @@ public class UserPermissionController {
     @GetMapping("/activatedevice/{userid}/{deviceid}")
     public UserDeviceDetailsDTO activateDevice(@PathVariable("userid") int userId, @PathVariable("deviceid") int deviceId) {
         UserDeviceDetailsDataModel deviceDetails = deviceService.getUserDeviceDetails(userId);
+
+        if(deviceDetails.isDeviceActive()){
+            throw new RuntimeException("Device already activated");
+        }
+
         UserPermissionDataModel permissionDetails = userPermissionService.getUserPermissionDetails(deviceDetails.getUserId());
         permissionDetails.setNoOfDevicesActive(permissionDetails.getNoOfDevicesActive()+1);
         permissionDetails.setNoOfDevicesNotActive(permissionDetails.getNoOfDevicesNotActive()-1);

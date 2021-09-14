@@ -49,6 +49,6 @@ public class UserRegistrationController {
             return responseBuilder.buildUserDetailsOnly(userRegistration.save(userDetails));
         }
         else
-            return null;
+            throw new RuntimeException("False value");
     }
 }
