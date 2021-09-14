@@ -6,7 +6,6 @@ public class WeatherDTO {
 
      private int Temperature;
      private int pressure;
-     private double precip;
      private int humidity;
      private int feelsLike;
      private int uvIndex;
@@ -14,10 +13,9 @@ public class WeatherDTO {
     public WeatherDTO() {
     }
 
-    public WeatherDTO(int temperature, int pressure, double precip, int humidity, int feelsLike, int uvIndex) {
+    public WeatherDTO(int temperature, int pressure, int humidity, int feelsLike, int uvIndex) {
         Temperature = temperature;
         this.pressure = pressure;
-        this.precip = precip;
         this.humidity = humidity;
         this.feelsLike = feelsLike;
         this.uvIndex = uvIndex;
@@ -37,14 +35,6 @@ public class WeatherDTO {
 
     public void setPressure(int pressure) {
         this.pressure = pressure;
-    }
-
-    public double getPrecip() {
-        return precip;
-    }
-
-    public void setPrecip(double precip) {
-        this.precip = precip;
     }
 
     public int getHumidity() {

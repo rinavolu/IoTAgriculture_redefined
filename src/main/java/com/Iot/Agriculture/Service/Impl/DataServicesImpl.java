@@ -1,7 +1,8 @@
-package com.Iot.Agriculture.Service;
+package com.Iot.Agriculture.Service.Impl;
 
 import com.Iot.Agriculture.Model.UserSensorDataModel;
 import com.Iot.Agriculture.Repository.SensorDataRepository;
+import com.Iot.Agriculture.Service.DataServices;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class DataServicesImpl implements DataServices{
+public class DataServicesImpl implements DataServices {
 
     @Autowired
     private SensorDataRepository sensorDataRepository;
